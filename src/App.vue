@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <small-user-profile v-for="user in users" :key="user[`id`]" :many_users="user"></small-user-profile>
+    <small-user-profile v-for="user in users" :key="user[`id`]" :many_users="user" @user_clicked="show_username"></small-user-profile>
   </div>
 </template>
 
@@ -11,8 +11,14 @@ export default {
   components: {
     SmallUserProfile,
   },
+  methods: {
+    show_username(many_users) {
+      this.chosen_usernames = many_users;
+    }
+  },
   data() {
     return {
+      chosen_usernames: undefined,
       users: [
         {
           name: `name_one`,
