@@ -1,6 +1,9 @@
 <template>
   <div id="app">
     <small-user-profile v-for="user in users" :key="user[`id`]" :many_users="user" @user_clicked="show_username"></small-user-profile>
+      <h1 v-if="chosen_usernames !== undefined"> name is: {{chosen_usernames[`name`]}}</h1>
+      <p v-if="chosen_usernames !== undefined" >age is: {{chosen_usernames[`age`]}}</p>
+      <p v-else-if="chosen_usernames === undefined" >Click the buttons to see data here</p>
   </div>
 </template>
 
